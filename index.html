@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HHTV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main>
+    <section class="hero" id="live">
+      <div class="hero-shapes" aria-hidden="true">
+        <span class="shape shape-orange"></span>
+        <span class="shape shape-magenta"></span>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1 class="hero-title">
+              <a href="https://horizonhouse.org" target="_blank" rel="noopener" class="hero-logo-link" aria-label="Visit horizonhouse.org">
+              <img src="hhtv-logo.png" alt="HHTV" class="hero-logo" />
+            </a>
+          </h1>
+        </div>
+
+        <div class="hero-main">
+        <div class="hero-player">
+          <div class="hero-player-frame">
+            <video id="hero-video" class="hero-video" muted autoplay playsinline controls></video>
+          </div>
+          <p class="hero-player-label">Watching Now &middot; Live Channel</p>
+        </div>
+
+        <aside class="hero-browse" aria-label="Browse our catalog">
+          <div class="browse-scroll">
+            <div class="browse-head">
+              <p class="eyebrow">On Demand</p>
+              <h3 class="browse-title">
+                <a href="https://videoplayer.telvue.com/player/h5YXQ1tu-XWPP7hPbMpI7hU3yTHI36_B?fullscreen=false&showtabssearch=false&show_title_description_summary=false&autoplay=true" target="_blank" rel="noopener">Browse our catalog &rarr;</a>
+              </h3>
+            </div>
+            <div class="series-list" id="series-list"></div>
+          </div>
+        </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="hhtv-logo.png" alt="HHTV" class="footer-logo" />
+      <p>&copy; <span id="year"></span> Horizon House</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+  <script>
+    const video = document.getElementById('hero-video');
+    const src = 'https://livestream.telvue.com/horizonhouse1/f7b44cfafd5c52223d5498196c8a2e7b.sdp/playlist.m3u8';
+
+    video.muted = true; // set via JS too; some browsers ignore the attribute
+
+    if (window.Hls && Hls.isSupported()) {
+      const hls = new Hls();
+      hls.on(Hls.Events.ERROR, (evt, data) => console.error('HLS error:', data.type, data.details, data));
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play().catch(err => console.warn('Autoplay blocked:', err));
+      });
+      hls.loadSource(src);
+      hls.attachMedia(video);
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = src; // Safari
+      video.play().catch(err => console.warn('Autoplay blocked:', err));
+    } else {
+      console.error('No HLS support');
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
