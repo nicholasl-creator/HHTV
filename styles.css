@@ -2,7 +2,9 @@
   /* Brand — primary */
   --hhtv-navy: #091f2c;
   --hhtv-magenta: #a20067;
+  --hhtv-dark-magenta: #52093a;
   --hhtv-orange: #ed8b00;
+  --hhtv-dark-orange: #ff5c39;
 
   /* Brand — secondary */
   --hhtv-blue: #004f71;
@@ -12,7 +14,7 @@
   /* Neutrals */
   --off-white: #faf8f6;
   --white: #ffffff;
-  --text-dark: #10141a;
+  --text-dark: #091f2c;
   --text-muted: #57636e;
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
