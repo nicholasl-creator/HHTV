@@ -73,10 +73,10 @@ a {
   right: -30vw;
   top: -35vw;
   bottom: -1vw; /* stretches it down past the footer */
-  background: var(--hhtv-dark-orange);
+  background: var(--hhtv-orange);
   transform: rotate(18deg);
   border-radius: 40px;
-  opacity: 1;
+  opacity: .6;
 }
 
 .shape-magenta {
@@ -88,7 +88,7 @@ a {
   background: var(--hhtv-dark-magenta);
   transform: rotate(12deg);
   border-radius: 40px;
-  opacity: 1;
+  opacity: .6;
 }
 
 .hero-inner {
