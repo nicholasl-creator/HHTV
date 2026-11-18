@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // thumb: path to your series image (leave "" to show the placeholder color)
   const SERIES = [
-    { name: "Fireside Chat", id: 6022, color: "#8a5a1f", thumb: "fc.png" },
+    { name: "Fireside Chat", id: 6022, color: "#8a5a1f", thumb: "FC.png" },
     { name: "Residents\u2019 Council", id: 5648, color: "#1f6f6b", thumb: "RC.png" },
     { name: "Speaking of Art", id: 6083, color: "#a24b2a", thumb: "speaking-of-art.png" },
     { name: "Let\u2019s Talk Science", id: 6084, color: "#24578f", thumb: "lets-talk-science.png" },
